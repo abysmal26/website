@@ -1,7 +1,7 @@
 <script lang="ts">
     export let lang = '';
 
-    let nodeVersion = '18.11.0';
+    let nodeVersion = '19.0.1';
     let langMap: Record<string, string>;
     $: langMap = {
         js: `<span class="text-[#94e2d5]"> node ${nodeVersion}`,

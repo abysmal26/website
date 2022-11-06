@@ -7,4 +7,7 @@
   <title>{$page.status}</title>
 </head>
 
-<h1 class="text-center">{$page.status}: {$page.error?.message}</h1>
+<section class="text-center">
+  <h1>{$page.status}: {$page.error?.message}</h1>
+  Note: Try pressing <code>CTRL</code> + <code>F5</code>
+</section>
