@@ -1,0 +1,180 @@
+<script lang="ts">
+    import { DateTime } from "luxon";
+    import ProjectItem from "$lib/components/ProjectItem.svelte";
+    import Branch from "$lib/components/Branch.svelte";
+    import Language from "$lib/components/Language.svelte";
+    import Workspace from "$lib/components/Workspace.svelte";
+    import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
+    import { useLanyard } from 'sk-lanyard'
+    import { fromJSON } from "postcss";
+
+    const timeZone = 'Etc/GMT+3';
+    const isTimeZoneSame = Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
+    let timeZoneToggle = false;
+
+    $: timeFormatter = new Intl.DateTimeFormat('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZone: timeZoneToggle ? timeZone : undefined
+    });
+    $: dateFormatter = new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+        timeZoneName: 'short',
+        timeZone: timeZoneToggle ? timeZone : undefined
+    });
+
+    let now = new Date();
+    setInterval(() => {
+        now = new Date();
+    }, 100);
+
+    $: date = dateFormatter.format(now);
+    $: time = timeFormatter.format(now);
+
+    const data = useLanyard({ method: 'ws', id: '505432621086670872' });
+    $: codeData = getCodeData($data);
+    $: otherActivities = getOtherActivities($data);
+</script>
+
+<section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetbrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
+    <div class="flex flex-col gap-7">
+        <div class="min-h-[3em] lg:min-h-0">
+            <span class="text-[#cba6f7]">abysmal</span>
+            <Workspace workspace={codeData?.workspace} />
+            <Branch name={codeData?.branch} />
+            <Language lang={codeData?.lang} />
+        </div>
+        <div class="text-[#cdd6f4]">
+            <h1 class="text-[#89b4fa]">fun facts about me</h1>
+            <ul class="list-disc list-inside">
+                <li>i'm brazilian</li>
+                <li>i'm learning javascript</li>
+                <li>i'm not fully fluent in english</li>
+                <li>i love <a href="https://kutt.it/CoolMusic" target="_blank" rel="noreferrer" class="text-[#b4befe] underline">this music</a></li>
+            </ul>
+        </div>
+        <div>
+            <h1 class="text-[#89b4fa]">projects</h1>
+            <ul class="list-disc list-inside text-[#7f849c]">
+                <ProjectItem
+                href="https://github.com/abysmal26/website"
+                name="website"
+                description="this website"
+                />
+                <ProjectItem
+                href="https://github.com/abysmal26/AdramelechBot"
+                name="adramelech bot"
+                description="my discord bot"
+                />
+                <ProjectItem
+                href="https://github.com/abysmal26/errorpages"
+                name="error pages"
+                description="error pages template"
+                />
+                <ProjectItem
+                href="https://github.com/abysmal26/digital-clock"
+                name="digital clock"
+                description="digital clock example in svelte"
+                />
+                <ProjectItem
+                href="https://github.com/abysmal26/tests"
+                name="random scripts"
+                description="my random scripts"
+                />
+            </ul>
+        </div>
+        <div>
+            <h1 class="text-[#89b4fa]">links</h1>
+            <ul class="list-disc list-inside text-[#7f849c]">
+                <ProjectItem
+                href="https://ayo.so/abysmal26"
+                name="ayo"
+                description="find all my social networks here"
+                />
+                <ProjectItem
+                href="https://t.me/abysmal26"
+                name="telegram"
+                description="best way to get in touch with me"
+                />
+                <ProjectItem
+                href="mailto:abysmal@vern.cc"
+                name="abysmal@vern.cc"
+                description="contact email"
+                />
+                <ProjectItem
+                href="mailto:dev@matt.aa.am"
+                name="dev@matt.aa.am"
+                description="main email"
+                />
+                <ProjectItem
+                href="/abysmal.asc"
+                name="pubkey"
+                description="my gpg public key"
+                />
+                <ProjectItem
+                href="https://github.com/abysmal26"
+                name="github"
+                />
+                <ProjectItem
+                href="https://twitter.com/abysmal26"
+                name="twitter"
+                />
+                <ProjectItem
+                href="https://instagram.com/abysmal26_"
+                name="instagram"
+                />
+            </ul>
+        </div>
+        <div>
+            <h1><a href="/donate" target="_blank" rel="noreferrer" class="text-[#b4befe] underline">donation</a></h1>
+        </div>
+    </div>
+    <div class="text-[#cdd6f4] flex flex-col items-start sm:items-end gap-3 sm:gap-7 sm:text-right">
+        {#if !isTimeZoneSame}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <div class="text-[#74c7ec] flex flex-col items-start sm:items-end hover:underline cursor-pointer" on:click={() => {timeZoneToggle = !timeZoneToggle}}>
+                <span>{date}</span>
+                <span>{time}</span>
+            </div>
+        {:else}
+            <div class="text-[#74c7ec] flex flex-col items-start sm:items-end">
+                <span>{date}</span>
+                <span>{time}</span>
+            </div>
+        {/if}
+        {#if $data?.spotify}
+            <div class="flex flex-col items-start sm:items-end">
+                <h1 class="font-bold">listening to</h1>
+                <span class="text-[#f5c2e7]">{$data.spotify?.song}</span>
+                <span class="text-[#89dceb]">{$data.spotify?.artist}</span>
+                <span class="text-[#94e2d5]">{$data.spotify?.album}</span>
+            </div>
+        {/if}
+        {#if codeData?.idling}
+            <div class="flex flex-col items-start sm:items-end">
+                <span class="font-bold">vs code</span>
+                <span class="text-[#f5c2e7]">currently idling</span>
+            </div>
+        {/if}
+        {#if codeData && !codeData.idling}
+            <div class="flex flex-col items-start sm:items-end">
+                <span class="font-bold">vs code</span>
+                <span class="text-[#f5c2e7]">{codeData.workspace}{codeData.branch ? `/${codeData.branch}` : ''}</span>
+                <span>writing <span class="text-[#89dceb]">{codeData.lang}</span></span>
+            </div>
+        {/if}
+        {#if otherActivities}
+            {#each otherActivities as activity}
+                <div class="flex flex-col items-start sm:items-end">
+                    <span>playing <span class="text-[#f5c2e7]">{activity.name}</span></span>
+                    {#if activity.start}
+                        <span>for <span class="text-[#89dceb]">{DateTime.fromJSDate(activity.start).toRelative({ base: DateTime.fromJSDate(now), locale: 'en-US' })?.replace(' ago', '')}</span></span>
+                    {/if}
+                </div>
+            {/each}
+        {/if}
+    </div>
+</section>
