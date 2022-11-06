@@ -6,7 +6,6 @@
     import Workspace from "$lib/components/Workspace.svelte";
     import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
     import { useLanyard } from 'sk-lanyard'
-    import { fromJSON } from "postcss";
 
     const timeZone = 'Etc/GMT+3';
     const isTimeZoneSame = Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
@@ -113,6 +112,10 @@
                 href="/abysmal.asc"
                 name="pubkey"
                 description="my gpg public key"
+                />
+                <ProjectItem
+                href="https://status.abysmal.eu.org"
+                name="status page"
                 />
                 <ProjectItem
                 href="https://github.com/abysmal26"
