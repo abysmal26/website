@@ -151,7 +151,7 @@
         {#if $data?.spotify}
             <div class="flex flex-col items-start sm:items-end">
                 <h1 class="font-bold">listening to</h1>
-                <span class="text-[#f5c2e7]">{$data.spotify?.song}</span>
+                <span class="text-[#f5c2e7]"><a href="https://open.spotify.com/track/{$data.spotify?.track_id}" class="hover:underline">{$data.spotify?.song}</a></span>
                 <span class="text-[#89dceb]">{$data.spotify?.artist}</span>
                 <span class="text-[#94e2d5]">{$data.spotify?.album}</span>
             </div>
