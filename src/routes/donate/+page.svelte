@@ -22,32 +22,32 @@
             </p>
             <br>
             <p>
-                Bitcoin: <code>{ethereumWallet}</code><br>
+                Ethereum: <code>{ethereumWallet}</code><br>
                 <button on:click={() => copy(ethereumWallet)}>Copy wallet</button>
             </p>
             <br>
             <p>
-                Bitcoin: <code>{moneroWallet}</code><br>
+                Monero: <code>{moneroWallet}</code><br>
                 <button on:click={() => copy(moneroWallet)}>Copy wallet</button>
             </p>
             <br>
             <p>
-                Bitcoin: <code>{rippleWallet}</code><br>
+                Ripple: <code>{rippleWallet}</code><br>
                 <button on:click={() => copy(rippleWallet)}>Copy wallet</button>
             </p>
             <br>
             <p>
-                Bitcoin: <code>{dogecoinWallet}</code><br>
+                Dogecoin: <code>{dogecoinWallet}</code><br>
                 <button on:click={() => copy(dogecoinWallet)}>Copy wallet</button>
             </p>
             <br>
             <p>
-                Bitcoin: <code>{cardanoWallet}</code><br>
+                Cardano: <code>{cardanoWallet}</code><br>
                 <button on:click={() => copy(cardanoWallet)}>Copy wallet</button>
             </p>
             <br>
             <p>
-                Bitcoin: <code>{solanaWallet}</code><br>
+                Solana: <code>{solanaWallet}</code><br>
                 <button on:click={() => copy(solanaWallet)}>Copy wallet</button>
             </p>
         </div>
