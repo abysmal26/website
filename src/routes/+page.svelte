@@ -5,7 +5,10 @@
     import Language from "$lib/components/Language.svelte";
     import Workspace from "$lib/components/Workspace.svelte";
     import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
-    import { useLanyard } from 'sk-lanyard'
+    import { useLanyard } from 'sk-lanyard';
+    import { getCommit } from '$lib/gitUtils';
+
+    const commitHASH = getCommit();
 
     const timeZone = 'Etc/GMT+3';
     const isTimeZoneSame = Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
@@ -165,7 +168,7 @@
         {#if codeData && !codeData.idling}
             <div class="flex flex-col items-start sm:items-end">
                 <span class="font-bold">vs code</span>
-                <span class="text-[#f5c2e7]">{codeData.workspace}{codeData.branch ? `/${codeData.branch}` : ''}</span>
+                <span class="text-[#f5c2e7]">{codeData.workspace?.replace(/[\u200B-\u200D\uFEFF]/g, '')}{codeData.branch ? `/${codeData.branch}` : ''}</span>
                 <span>writing <span class="text-[#89dceb]">{codeData.lang}</span></span>
             </div>
         {/if}
@@ -179,5 +182,14 @@
                 </div>
             {/each}
         {/if}
+        {#await commitHASH}
+                <div>
+                    Loading...
+                </div>
+        {:then commitHASH}
+                <div>
+                    <a href="https://github.com/abysmal26/website/commit/{commitHASH}" class="text-[#b4befe] underline">{commitHASH}</a>
+                </div>
+        {/await}
     </div>
 </section>
