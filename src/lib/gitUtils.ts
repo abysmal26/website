@@ -4,4 +4,4 @@ export const getCommit = async () => {
     const hash = sha.slice(0, 7);
 
     return hash;
-}
+};

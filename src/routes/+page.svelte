@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { DateTime } from "luxon";
-    import ProjectItem from "$lib/components/ProjectItem.svelte";
-    import Branch from "$lib/components/Branch.svelte";
-    import Language from "$lib/components/Language.svelte";
-    import Workspace from "$lib/components/Workspace.svelte";
+    import { DateTime } from 'luxon';
+    import ProjectItem from '$lib/components/ProjectItem.svelte';
+    import Branch from '$lib/components/Branch.svelte';
+    import Language from '$lib/components/Language.svelte';
+    import Workspace from '$lib/components/Workspace.svelte';
     import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
     import { useLanyard } from 'sk-lanyard';
     import { getCommit } from '$lib/gitUtils';
@@ -18,14 +18,14 @@
         hour: 'numeric',
         minute: 'numeric',
         second: 'numeric',
-        timeZone: timeZoneToggle ? timeZone : undefined
+        timeZone: timeZoneToggle ? timeZone : undefined,
     });
     $: dateFormatter = new Intl.DateTimeFormat('en-US', {
         month: 'long',
         day: 'numeric',
         year: 'numeric',
         timeZoneName: 'short',
-        timeZone: timeZoneToggle ? timeZone : undefined
+        timeZone: timeZoneToggle ? timeZone : undefined,
     });
 
     let now = new Date();
@@ -55,7 +55,7 @@
                 <li>i'm brazilian</li>
                 <li>i'm learning javascript</li>
                 <li>i'm not fully fluent in english</li>
-                <li>i love <a href="https://kutt.it/CoolMusic" target="_blank" rel="noreferrer" class="text-[#b4befe] underline">this music</a></li>
+                <li>i love <a href="https://kutt.it/CoolMusic" target="_blank" rel="noreferrer" class="text-[#b4befe] hover:underline">this music</a></li>
             </ul>
         </div>
         <div>
@@ -135,13 +135,13 @@
             </ul>
         </div>
         <div>
-            <h1><a href="/donate" target="_blank" rel="noreferrer" class="text-[#b4befe] underline">donation</a></h1>
+            <h1><a href="/donate" class="text-[#b4befe] hover:underline">donation</a></h1>
         </div>
     </div>
     <div class="text-[#cdd6f4] flex flex-col items-start sm:items-end gap-3 sm:gap-7 sm:text-right">
         {#if !isTimeZoneSame}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <div class="text-[#74c7ec] flex flex-col items-start sm:items-end hover:underline cursor-pointer" on:click={() => {timeZoneToggle = !timeZoneToggle}}>
+            <div class="text-[#74c7ec] flex flex-col items-start sm:items-end hover:underline cursor-pointer" on:click={() => {timeZoneToggle = !timeZoneToggle;}}>
                 <span>{date}</span>
                 <span>{time}</span>
             </div>
@@ -188,7 +188,7 @@
                 </div>
         {:then commitHASH}
                 <div>
-                    <a href="https://github.com/abysmal26/website/commit/{commitHASH}" class="text-[#b4befe] underline">{commitHASH}</a>
+                    <a href="https://github.com/abysmal26/website/commit/{commitHASH}" target="_blank" rel="noreferrer" class="text-[#b4befe] hover:underline">{commitHASH}</a>
                 </div>
         {/await}
     </div>

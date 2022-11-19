@@ -1,12 +1,12 @@
 <script lang="ts">
     export let lang = '';
 
-    let nodeVersion = '19.0.1';
+    const nodeVersion = '19.0.1';
     let langMap: Record<string, string>;
     $: langMap = {
         js: `<span class="text-[#94e2d5]"> node ${nodeVersion}`,
         ts: `<span class="text-[#94e2d5]"> node ${nodeVersion}`,
-        svelte: `<span class="text-[#94e2d5]"> node ${nodeVersion}`
+        svelte: `<span class="text-[#94e2d5]"> node ${nodeVersion}`,
     };
 </script>
 

@@ -8,7 +8,7 @@
         };
 
         onfocus = () => {
-            document.body.className = 'bg-[#11111b] motion-safe:transition-colors motion-safe:duration-300'
+            document.body.className = 'bg-[#11111b] motion-safe:transition-colors motion-safe:duration-300';
         };
     });
 </script>

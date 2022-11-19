@@ -51,7 +51,11 @@
                 <button on:click={() => copy(solanaWallet)}>Copy wallet</button>
             </p>
         </div>
+        <div>
+            <a href=".." class="text-[#b4befe] hover:underline">← back</a>
+        </div>
     </div>
+    
 </section>
 
 <style>
