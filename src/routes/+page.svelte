@@ -157,6 +157,7 @@
                 <span class="text-[#f5c2e7]"><a href="https://open.spotify.com/track/{$data.spotify?.track_id}" target="_blank" rel="noreferrer" class="hover:underline">{$data.spotify?.song}</a></span>
                 <span class="text-[#89dceb]">{$data.spotify?.artist}</span>
                 <span class="text-[#94e2d5]">{$data.spotify?.album}</span>
+                <img src="{$data.spotify?.album_art_url.replace('spotify:', 'https://i.scdn.co/image/')}" alt="Album cover" style="width: 7rem;" class="mt-1">
             </div>
         {/if}
         {#if codeData?.idling}
