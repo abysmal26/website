@@ -132,6 +132,10 @@
                 href="https://instagram.com/abysmal26_"
                 name="instagram"
                 />
+                <ProjectItem
+                href="/contact"
+                name="contact form"
+                />
             </ul>
         </div>
         <div>

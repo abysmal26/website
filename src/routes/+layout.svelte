@@ -44,6 +44,6 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </svelte:head>
 
-<main>
+<main class="text-[#cdd6f4]">
     <slot />
 </main>
