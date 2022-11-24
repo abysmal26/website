@@ -55,9 +55,6 @@
 
 <section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetbrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
     <div class="flex flex-col gap-7">
-        <!-- <div class="min-h-[3em] lg:min-h-0">
-            <span class="text-[#cba6f7]">contact form</span>
-        </div> -->
         <div class="well">
             <form on:submit|preventDefault={submitForm}>
                 <fieldset>
