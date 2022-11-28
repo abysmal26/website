@@ -1,6 +1,4 @@
 <script lang="ts">
-    const webhook = process.env.CONTACT_WEBHOOK || '';
-
     let inputName: string;
     let inputEmail: string;
     let inputMessage: string;
@@ -9,43 +7,20 @@
     const submitForm = async () => {
         submitStatus = 'submitting';
 
-        const embed = {
-            'title': 'Contact Form',
-            'description': `From ${window.location.protocol}//${window.location.host}`,
-            'color': 13346551,
-            'fields': [
-                {
-                    'name': ':bust_in_silhouette: **Name**',
-                    'value': '`' + inputName + '`',
-                },
-                {
-                    'name': ':envelope: **Email**',
-                    'value': '`' + inputEmail + '`',
-                },
-                {
-                    'name': ':page_facing_up: **Message**',
-                    'value': '```\n' + inputMessage + '\n```',
-                },
-            ],
+        const data = {
+            originURL: window.location.protocol + '//' + window.location.host,
+            inputName,
+            inputEmail,
+            inputMessage,
         };
 
-        const params = {
-            'username': 'Contact Form',
-            'avatar_url': 'https://abysmal.eu.org/avatar.png',
-            'embeds': [embed],
-        };
+        const res = await (await fetch('https://api.abysmal.eu.org/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })).json();
 
-        try {
-            await fetch(webhook, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(params),
-            });
-        } catch {
-            return submitStatus = 'failed';
-        }
-
-        submitStatus = 'success';
+        (res.success) ? submitStatus = 'success' : submitStatus = 'failed';
     };
 </script>
 
