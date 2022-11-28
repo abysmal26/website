@@ -107,8 +107,8 @@
                 description="contact email"
                 />
                 <ProjectItem
-                href="mailto:dev@matt.aa.am"
-                name="dev@matt.aa.am"
+                href="mailto:baxthus@proton.me"
+                name="baxthus@proton.me"
                 description="main email"
                 />
                 <ProjectItem
