@@ -41,7 +41,7 @@
     $: otherActivities = getOtherActivities($data);
 </script>
 
-<section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetbrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
+<section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetBrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
     <div class="flex flex-col gap-7">
         <div class="min-h-[3em] lg:min-h-0">
             <span class="text-[#cba6f7]">abysmal</span>
@@ -53,7 +53,7 @@
             <h1 class="text-[#89b4fa]">fun facts about me</h1>
             <ul class="list-disc list-inside">
                 <li>i'm brazilian</li>
-                <li>i'm learning javascript</li>
+                <li>i'm learning javascript/typescript</li>
                 <li>i'm not fully fluent in english</li>
                 <li>i love <a href="https://kutt.it/CoolMusic" target="_blank" rel="noreferrer" class="text-[#b4befe] hover:underline">this music</a></li>
             </ul>
@@ -79,7 +79,7 @@
                 <ProjectItem
                 href="https://github.com/abysmal26/digital-clock"
                 name="digital clock"
-                description="digital clock example in svelte"
+                description="a digital clock example in svelte"
                 />
                 <ProjectItem
                 href="https://github.com/abysmal26/tests"
@@ -94,12 +94,12 @@
                 <ProjectItem
                 href="https://ayo.so/abysmal26"
                 name="ayo"
-                description="find all my social networks here"
+                description="find all my socials here"
                 />
                 <ProjectItem
                 href="https://t.me/abysmal26"
                 name="telegram"
-                description="best way to get in touch with me"
+                description="best way to contact me"
                 />
                 <ProjectItem
                 href="mailto:abysmal@vern.cc"
@@ -155,10 +155,10 @@
         {#if $data?.spotify}
             <div class="flex flex-col items-start sm:items-end">
                 <h1 class="font-bold">listening to</h1>
-                <span class="text-[#f5c2e7]"><a href="https://open.spotify.com/track/{$data.spotify?.track_id}" target="_blank" rel="noreferrer" class="hover:underline">{$data.spotify?.song}</a></span>
-                <span class="text-[#89dceb]">{$data.spotify?.artist}</span>
-                <span class="text-[#94e2d5]">{$data.spotify?.album}</span>
-                <img src="{$data.spotify?.album_art_url.replace('spotify:', 'https://i.scdn.co/image/')}" alt="Album cover" style="width: 7rem;" class="mt-1">
+                <span class="text-[#f5c2e7]"><a href="https://open.spotify.com/track/{$data.spotify?.track_id}" target="_blank" rel="noreferrer" class="hover:underline">{$data.spotify.song}</a></span>
+                <span class="text-[#89dceb]">{$data.spotify.artist}</span>
+                <span class="text-[#94e2d5]">{$data.spotify.album}</span>
+                <img src="{$data.spotify.album_art_url.replace('spotify:', 'https://i.scdn.co/image/')}" alt="Album cover" style="width: 7rem;" class="mt-1">
             </div>
         {/if}
         {#if codeData?.idling}
@@ -185,13 +185,13 @@
             {/each}
         {/if}
         {#await commitHASH}
-                <div>
-                    Loading...
-                </div>
+            <div>
+                Loading...
+            </div>
         {:then commitHASH}
-                <div>
-                    <a href="https://github.com/abysmal26/website/commit/{commitHASH}" target="_blank" rel="noreferrer" class="text-[#b4befe] hover:underline">{commitHASH}</a>
-                </div>
+            <div>
+                <a href="https://github.com/abysmal26/website/commit/{commitHASH}" target="_blank" rel="noreferrer" class="text-[#b4befe] hover:underline">{commitHASH}</a>
+            </div>
         {/await}
     </div>
 </section>

@@ -1,10 +1,12 @@
+// 810516608442695700 == https://marketplace.visualstudio.com/items?itemName=LeonardSSH.vscord
+
 import type { LanyardData } from 'sk-lanyard';
 
 interface VSCodeData {
     lang?: string,
     workspace?: string,
     branch?: string,
-    idling?: boolean,
+    idling?: boolean
 }
 
 interface Activity {

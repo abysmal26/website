@@ -14,27 +14,25 @@
 </script>
 
 <svelte:head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abysmal</title>
 
     <meta name="title" content="Abysmal">
     <meta name="description" content="Quem não tem colírios usa óculos escuros">
-    <meta rel="canonical" href="https://abysmal.eu.org">
+    <!-- <meta rel="canonical" href="https://abysmal.eu.org"> -->
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://abysmal.eu.org">
     <meta property="og:title" content="Abysmal">
     <meta property="og:description" content="Quem não tem colírios usa óculos escuros">
-    <meta property="og:image" content="https://abysmal.eu.org/src/static/assets/avatar.png">
+    <meta property="og:image" content="https://abysmal.eu.org/avatar.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://abysmal.eu.org">
     <meta property="twitter:title" content="Abysmal">
     <meta property="twitter:description" content="Quem não tem colírios usa óculos escuros">
-    <meta property="twitter:image" content="https://abysmal.eu.org/src/static/assets/avatar.png">
+    <meta property="twitter:image" content="https://abysmal.eu.org/avatar.png">
 
     <link rel="me" href="https://mastodon.social/@abysmal26">
 

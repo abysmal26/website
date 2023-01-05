@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="https://tilde.team/css/hacker.css">
 </svelte:head>
 
-<section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetbrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
+<section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetBrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
     <div class="flex flex-col gap-7">
         <div class="well">
             <form on:submit|preventDefault={submitForm}>
