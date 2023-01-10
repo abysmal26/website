@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-    <title>Abysmal</title>
+    <title>アビスマル</title>
 
     <meta name="title" content="Abysmal">
     <meta name="description" content="Quem não tem colírios usa óculos escuros">
