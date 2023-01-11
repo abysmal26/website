@@ -11,6 +11,7 @@
     const commitHASH = getCommit();
 
     const timeZone = 'Etc/GMT+3';
+    // prettier-ignore
     const isTimeZoneSame = Intl.DateTimeFormat().resolvedOptions().timeZone === timeZone;
     let timeZoneToggle = false;
 
@@ -42,10 +43,11 @@
 </script>
 
 <svelte:head>
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </svelte:head>
 
+<!-- prettier-ignore -->
 <section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetBrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
     <div class="flex flex-col gap-7">
         <div class="min-h-[3em] lg:min-h-0" id="names">

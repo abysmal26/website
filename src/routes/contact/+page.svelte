@@ -14,20 +14,23 @@
             inputMessage,
         };
 
-        const res = await (await fetch('https://api.abysmal.eu.org/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data),
-        })).json();
+        const res = await (
+            await fetch('api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+        ).json();
 
-        (res.success) ? submitStatus = 'success' : submitStatus = 'failed';
+        res.success ? (submitStatus = 'success') : (submitStatus = 'failed');
     };
 </script>
 
 <svelte:head>
-    <link rel="stylesheet" href="https://tilde.team/css/hacker.css">
+    <link rel="stylesheet" href="https://tilde.team/css/hacker.css" />
 </svelte:head>
 
+<!-- prettier-ignore -->
 <section class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetBrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between">
     <div class="flex flex-col gap-7">
         <div class="well">
