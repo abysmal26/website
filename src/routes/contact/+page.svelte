@@ -15,7 +15,7 @@
         };
 
         const res = await (
-            await fetch('api/contact', {
+            await fetch('https://api.abysmal.eu.org/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
